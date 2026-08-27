@@ -28,7 +28,6 @@ export const BookingModal = ({ isOpen, onClose, t, lang, preSelectedService }) =
     if (lang === 'tr') {
       text = `🌸 *Vitalinda Randevu & Bilgi Talebi*\n\n` +
         `👤 *İsim:* ${formData.fullName}\n` +
-        `📞 *Telefon:* ${formData.phone}\n` +
         `💆‍♀️ *Hizmet/Eğitim:* ${formData.service}\n` +
         `📅 *Tercih Edilen Zaman:* ${formData.datePref || 'En yakın uygun zaman'}\n` +
         `📝 *Not:* ${formData.note || 'Yok'}\n\n` +
@@ -36,7 +35,6 @@ export const BookingModal = ({ isOpen, onClose, t, lang, preSelectedService }) =
     } else if (lang === 'ru') {
       text = `🌸 *Vitalinda Запись на процедуру/обучение*\n\n` +
         `👤 *Имя:* ${formData.fullName}\n` +
-        `📞 *Телефон:* ${formData.phone}\n` +
         `💆‍♀️ *Услуга/Курс:* ${formData.service}\n` +
         `📅 *Желаемая дата:* ${formData.datePref || 'Ближайшее свободное время'}\n` +
         `📝 *Комментарий:* ${formData.note || 'Нет'}\n\n` +
@@ -44,7 +42,6 @@ export const BookingModal = ({ isOpen, onClose, t, lang, preSelectedService }) =
     } else {
       text = `🌸 *Vitalinda Booking & Inquiry Request*\n\n` +
         `👤 *Name:* ${formData.fullName}\n` +
-        `📞 *Phone:* ${formData.phone}\n` +
         `💆‍♀️ *Service/Academy:* ${formData.service}\n` +
         `📅 *Preferred Date/Time:* ${formData.datePref || 'Soonest available'}\n` +
         `📝 *Note:* ${formData.note || 'None'}\n\n` +
@@ -52,8 +49,14 @@ export const BookingModal = ({ isOpen, onClose, t, lang, preSelectedService }) =
     }
 
     const encodedText = encodeURIComponent(text);
-    // WhatsApp direct link
-    const waUrl = `https://wa.me/905468203948?text=${encodedText}`;
+    const phone = '905468203948';
+    
+    // Smart routing to avoid fallback page on desktop
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const waUrl = isMobile 
+      ? `https://wa.me/${phone}?text=${encodedText}`
+      : `https://web.whatsapp.com/send?phone=${phone}&text=${encodedText}`;
+      
     window.open(waUrl, '_blank');
     onClose();
   };
@@ -99,23 +102,6 @@ export const BookingModal = ({ isOpen, onClose, t, lang, preSelectedService }) =
                 value={formData.fullName}
                 onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                 placeholder={t.booking.placeholderName}
-                className="w-full pl-10 pr-4 py-3 rounded-xl border border-[#EBDCD4] bg-[#FCF8F6] text-sm text-[#2D1B1D] focus:outline-none focus:border-[#B56576] focus:bg-white transition-all"
-              />
-            </div>
-          </div>
-
-          <div>
-            <label className="block text-xs font-bold text-[#3B2B28] uppercase tracking-wider mb-1.5">
-              {t.booking.phone} *
-            </label>
-            <div className="relative">
-              <Phone className="w-4 h-4 text-[#8C6D68] absolute left-3.5 top-1/2 -translate-y-1/2" />
-              <input
-                type="tel"
-                required
-                value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                placeholder={t.booking.placeholderPhone}
                 className="w-full pl-10 pr-4 py-3 rounded-xl border border-[#EBDCD4] bg-[#FCF8F6] text-sm text-[#2D1B1D] focus:outline-none focus:border-[#B56576] focus:bg-white transition-all"
               />
             </div>
