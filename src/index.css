@@ -1,0 +1,97 @@
+﻿@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+}
+
+.font-serif-luxury {
+  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+}
+
+.font-sans-clean {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+/* Custom Luxury Gradients & Shadows */
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #D4AF37 0%, #E8C872 50%, #B38048 100%);
+}
+
+.bg-rose-gradient {
+  background: linear-gradient(135deg, #FFF5F2 0%, #FBECE8 50%, #F5DAD5 100%);
+}
+
+.bg-dark-luxury {
+  background: linear-gradient(145deg, #231617 0%, #351F22 50%, #1A0E10 100%);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #C59A4E 0%, #E0BC6B 50%, #A97A35 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-rose-gold {
+  background: linear-gradient(135deg, #B56576 0%, #D48C9A 50%, #9E4759 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(230, 205, 195, 0.45);
+}
+
+.glass-card-dark {
+  background: rgba(35, 22, 23, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.gold-border-glow {
+  box-shadow: 0 0 25px -5px rgba(212, 175, 55, 0.25);
+}
+
+.rose-border-glow {
+  box-shadow: 0 10px 30px -10px rgba(181, 101, 118, 0.2);
+}
+
+/* Animations */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.04); }
+}
+
+.animate-float {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* Smooth custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FDF8F6;
+}
+::-webkit-scrollbar-thumb {
+  background: #D9B8AD;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C4988A;
+}
