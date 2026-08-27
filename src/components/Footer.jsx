@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { MessageCircle, Heart, Clock, MapPin, Sparkles } from 'lucide-react';
 
 export const Footer = ({ t, onOpenBooking }) => {
@@ -44,7 +44,7 @@ export const Footer = ({ t, onOpenBooking }) => {
               </a>
 
               <a
-                href="https://wa.me/905320000000"
+                href="https://wa.me/905468203948"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-[#361E20] hover:bg-[#25D366] flex items-center justify-center text-[#E8C872] hover:text-white transition-colors border border-[#D4AF37]/30 cursor-pointer"

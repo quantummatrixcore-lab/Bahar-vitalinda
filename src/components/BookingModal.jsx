@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Send, Calendar, User, Phone, BookOpen, MessageSquare, Sparkles } from 'lucide-react';
 
 export const BookingModal = ({ isOpen, onClose, t, lang, preSelectedService }) => {
@@ -53,7 +53,7 @@ export const BookingModal = ({ isOpen, onClose, t, lang, preSelectedService }) =
 
     const encodedText = encodeURIComponent(text);
     // WhatsApp direct link
-    const waUrl = `https://wa.me/905320000000?text=${encodedText}`;
+    const waUrl = `https://wa.me/905468203948?text=${encodedText}`;
     window.open(waUrl, '_blank');
     onClose();
   };

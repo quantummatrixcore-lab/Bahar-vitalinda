@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { translations } from './translations.js';
 import { Navbar } from './components/Navbar.jsx';
 import { Hero } from './components/Hero.jsx';
@@ -47,7 +47,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FCF8F6] text-[#2D1B1D] selection:bg-[#F0DCD5] selection:text-[#3B2527] font-sans antialiased">
+    <div className="min-h-screen w-full overflow-x-hidden relative bg-[#FCF8F6] text-[#2D1B1D] selection:bg-[#F0DCD5] selection:text-[#3B2527] font-sans antialiased">
       
       {/* Sticky Header Navigation */}
       <Navbar
@@ -127,7 +127,7 @@ export default function App() {
         )}
 
         <a
-          href="https://wa.me/905320000000"
+          href="https://wa.me/905468203948"
           target="_blank"
           rel="noopener noreferrer"
           className="w-14 h-14 rounded-full bg-[#25D366] text-white shadow-2xl hover:scale-110 hover:shadow-[#25D366]/40 transition-all flex items-center justify-center cursor-pointer border-2 border-white"
