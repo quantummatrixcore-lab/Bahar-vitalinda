@@ -18,21 +18,21 @@ export const Quiz = ({ t, onSelectServiceForBooking }) => {
   const getRecommendation = () => {
     if (answers.q1 === 1 || answers.q2 === 1) {
       return {
-        title: "Yüz Lifting Hacamatı & Gua Sha Masajı",
-        desc: "Yüz ovalinizi toparlamak, ödemi tahliye etmek ve kolajen üretimini tetiklemek için ideal başlangıç seansı.",
-        service: "Yüz Lifting Hacamatı"
+        title: t.ui.quiz.r1Title,
+        desc: t.ui.quiz.r1Desc,
+        service: t.services.items[2]?.name
       };
     } else if (answers.q1 === 2 || answers.q2 === 2) {
       return {
-        title: "Sağlık İçin Hacamat & Analiz Sonrası Yüz Masajı",
-        desc: "Sırt, boyun ve yüz gerginliklerinizi çözmek, kan dolaşımını hızlandırıp detoks sağlamak için en etkili ikili.",
-        service: "Sağlık İçin Hacamat"
+        title: t.ui.quiz.r2Title,
+        desc: t.ui.quiz.r2Desc,
+        service: t.services.items[1]?.name
       };
     } else {
       return {
-        title: "Kadının Doğal Güzellik ve Beden Dengesi Eğitimi",
-        desc: "Kendi yüzünüzü ve bedeninizi tanıyıp evinizde sürdürülebilir bir bakım ve postür rutini kurmanız için 7 modüllük özel akademi.",
-        service: "Kadının Doğal Güzellik ve Beden Dengesi Eğitimi"
+        title: t.academy.title,
+        desc: t.ui.quiz.r3Desc,
+        service: t.academy.title
       };
     }
   };
@@ -43,32 +43,31 @@ export const Quiz = ({ t, onSelectServiceForBooking }) => {
   };
 
   return (
-    <section id="quiz" className="py-20 md:py-28 bg-[#FCF8F6] relative">
+    <section id="quiz" className="py-20 md:py-28 bg-ivory relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center space-y-4 mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-[#F3E5DC] text-[#7A3E48] text-xs font-semibold tracking-widest uppercase border border-[#E0CBC2]">
-            <HelpCircle className="w-3.5 h-3.5 text-[#D4AF37]" />
+          <div className="inline-flex items-center gap-2 text-sm font-medium text-rose-deep">
             <span>{t.quiz.badge}</span>
           </div>
 
-          <h2 className="font-serif-luxury text-3xl sm:text-4xl md:text-5xl font-bold text-[#2D1B1D]">
+          <h2 className="font-serif-luxury font-medium text-4xl sm:text-5xl text-ink leading-[1.1]">
             {t.quiz.title}
           </h2>
 
-          <p className="text-base text-[#614F4C] max-w-xl mx-auto">
+          <p className="text-base text-muted max-w-xl mx-auto">
             {t.quiz.subtitle}
           </p>
         </div>
 
         {/* Quiz Card Box */}
-        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#EBDCD4] shadow-xl relative overflow-hidden">
-          <div className="absolute top-0 left-0 h-1.5 bg-[#D4AF37] transition-all duration-300" style={{ width: `${(step / 3) * 100}%` }}></div>
+        <div className="bg-white rounded-[1.75rem] p-6 sm:p-10 border border-line shadow-xl relative overflow-hidden">
+          <div className="absolute top-0 left-0 h-1.5 bg-gold transition-all duration-300" style={{ width: `${(step / 3) * 100}%` }}></div>
 
           {step === 1 && (
             <div className="space-y-6 animate-in fade-in duration-300">
-              <h3 className="font-serif-luxury font-bold text-xl sm:text-2xl text-[#2D1B1D]">
+              <h3 className="font-serif-luxury font-semibold text-xl sm:text-2xl text-ink">
                 {t.quiz.q1}
               </h3>
               <div className="space-y-3">
@@ -80,10 +79,10 @@ export const Quiz = ({ t, onSelectServiceForBooking }) => {
                   <button
                     key={opt.id}
                     onClick={() => handleSelect('q1', opt.id)}
-                    className="w-full text-left p-4 sm:p-5 rounded-2xl border border-[#EBDCD4] hover:border-[#D4AF37] hover:bg-[#FAF3F0] transition-all font-medium text-sm text-[#3B2B28] flex items-center justify-between group cursor-pointer"
+                    className="w-full text-left p-4 sm:p-5 rounded-2xl border border-line hover:border-gold hover:bg-ivory transition-all font-medium text-sm text-ink-soft flex items-center justify-between group cursor-pointer"
                   >
                     <span>{opt.text}</span>
-                    <ArrowRight className="w-4 h-4 text-[#8C6D68] group-hover:text-[#D4AF37] group-hover:translate-x-1 transition-all" />
+                    <ArrowRight className="w-4 h-4 text-stone group-hover:text-gold group-hover:translate-x-1 transition-all" />
                   </button>
                 ))}
               </div>
@@ -92,7 +91,7 @@ export const Quiz = ({ t, onSelectServiceForBooking }) => {
 
           {step === 2 && (
             <div className="space-y-6 animate-in fade-in duration-300">
-              <h3 className="font-serif-luxury font-bold text-xl sm:text-2xl text-[#2D1B1D]">
+              <h3 className="font-serif-luxury font-semibold text-xl sm:text-2xl text-ink">
                 {t.quiz.q2}
               </h3>
               <div className="space-y-3">
@@ -104,10 +103,10 @@ export const Quiz = ({ t, onSelectServiceForBooking }) => {
                   <button
                     key={opt.id}
                     onClick={() => handleSelect('q2', opt.id)}
-                    className="w-full text-left p-4 sm:p-5 rounded-2xl border border-[#EBDCD4] hover:border-[#D4AF37] hover:bg-[#FAF3F0] transition-all font-medium text-sm text-[#3B2B28] flex items-center justify-between group cursor-pointer"
+                    className="w-full text-left p-4 sm:p-5 rounded-2xl border border-line hover:border-gold hover:bg-ivory transition-all font-medium text-sm text-ink-soft flex items-center justify-between group cursor-pointer"
                   >
                     <span>{opt.text}</span>
-                    <ArrowRight className="w-4 h-4 text-[#8C6D68] group-hover:text-[#D4AF37] group-hover:translate-x-1 transition-all" />
+                    <ArrowRight className="w-4 h-4 text-stone group-hover:text-gold group-hover:translate-x-1 transition-all" />
                   </button>
                 ))}
               </div>
@@ -116,18 +115,18 @@ export const Quiz = ({ t, onSelectServiceForBooking }) => {
 
           {step === 3 && (
             <div className="text-center space-y-6 animate-in fade-in zoom-in duration-300">
-              <div className="w-16 h-16 rounded-full bg-[#F8EAE4] text-[#8B3A4A] flex items-center justify-center mx-auto shadow-inner">
-                <Sparkles className="w-8 h-8 text-[#D4AF37]" />
+              <div className="w-16 h-16 rounded-full bg-cream text-rose-deep flex items-center justify-center mx-auto shadow-inner">
+                <Sparkles className="w-8 h-8 text-gold" />
               </div>
 
               <div>
-                <span className="text-xs font-semibold uppercase tracking-wider text-[#8C6D68]">
+                <span className="text-sm font-medium text-stone">
                   {t.quiz.resultTitle}
                 </span>
-                <h3 className="font-serif-luxury font-bold text-2xl sm:text-3xl text-[#2D1B1D] mt-2">
+                <h3 className="font-serif-luxury font-semibold text-2xl sm:text-3xl text-ink mt-2">
                   {getRecommendation().title}
                 </h3>
-                <p className="text-sm sm:text-base text-[#5C4A47] max-w-lg mx-auto mt-3 leading-relaxed">
+                <p className="text-sm sm:text-base text-ink-soft max-w-lg mx-auto mt-3 leading-relaxed">
                   {getRecommendation().desc}
                 </p>
               </div>
@@ -135,15 +134,15 @@ export const Quiz = ({ t, onSelectServiceForBooking }) => {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
                 <button
                   onClick={() => onSelectServiceForBooking(getRecommendation().service)}
-                  className="w-full sm:w-auto bg-gradient-to-r from-[#2D1B1D] to-[#4A2E30] text-[#FAF4F0] px-8 py-4 rounded-full text-xs font-bold tracking-widest uppercase shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 border border-[#D4AF37]/50 cursor-pointer"
+                  className="w-full sm:w-auto bg-ink hover:bg-olive-800 text-ivory px-8 py-4 rounded-full text-sm font-semibold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 border border-gold/50 cursor-pointer"
                 >
                   <span>{t.quiz.bookResult}</span>
-                  <ArrowRight className="w-4 h-4 text-[#D4AF37]" />
+                  <ArrowRight className="w-4 h-4 text-gold" />
                 </button>
 
                 <button
                   onClick={resetQuiz}
-                  className="w-full sm:w-auto px-6 py-4 rounded-full border border-[#E0CBC2] text-xs font-semibold text-[#665451] hover:bg-[#FAF3F0] transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full sm:w-auto px-6 py-4 rounded-full border border-line text-xs font-semibold text-muted hover:bg-ivory transition-colors flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
                   <span>{t.quiz.takeQuizAgain}</span>

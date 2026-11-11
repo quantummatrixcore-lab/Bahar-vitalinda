@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 96" role="img" aria-label="Vitalinda">
+  <g transform="translate(8 8) scale(1.66)">
+    <path d="M24 43C13 36 7 24 9 9c10 5 16 18 15 34Z" fill="#6B7045"/>
+    <path d="M24 43c11-7 17-19 15-34-10 5-16 18-15 34Z" fill="#C0807A"/>
+    <path d="M24 43C19.5 33 14 21.500 10.600 11.200" stroke="#FBF6EE" stroke-width="0.8" stroke-linecap="round" opacity="0.65" fill="none"/>
+    <path d="M24 43c4.500-10 10-21.500 13.400-31.800" stroke="#FBF6EE" stroke-width="0.8" stroke-linecap="round" opacity="0.65" fill="none"/>
+    <circle cx="24" cy="9.500" r="3.300" fill="#B8924C"/>
+  </g>
+  <text x="104" y="60" font-family="'Cormorant Garamond', Georgia, serif" font-size="40" font-weight="600" letter-spacing="8" fill="#2A2D1C">VITALINDA</text>
+</svg>

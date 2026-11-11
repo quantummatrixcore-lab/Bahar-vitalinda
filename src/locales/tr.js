@@ -372,5 +372,84 @@ export const tr = {
     "quickLinks": "Hızlı Bağlantılar",
     "workingHours": "Çalışma Saatleri: Pazartesi - Cumartesi: 09:30 - 19:00",
     "instaHandle": "@vitalinda_1"
+  },
+  "ui": {
+    "meta": {
+      "title": "VITALINDA | Sağlıklı Yaşam & Güzellik Atölyesi | İçten Dışa Dönüşüm",
+      "description": "Kadının Doğal Güzellik ve Beden Dengesi Atölyesi. Yüz Jimnastiği, Hacamat, Manuel Masaj, Kinesio Taping, Diyafram ve Pelvik Taban farkındalığı."
+    },
+    "brandTagline": "Sağlık • Spor • Güzellik",
+    "studioName": "Vitalinda Stüdyo",
+    "workshopName": "Vitalinda Atölyesi",
+    "common": {
+      "close": "Kapat",
+      "scrollTop": "Yukarı Çık",
+      "whatsapp": "WhatsApp ile Hızlı İletişim",
+      "toggleMenu": "Menüyü Aç / Kapat",
+      "madeBefore": "Doğal Dönüşüm için",
+      "madeAfter": "ile tasarlandı"
+    },
+    "hero": {
+      "cardSubtitle": "Sağlıklı Yaşam & Güzellik Atölyesi",
+      "f1Title": "Yüz Jimnastiği & Lifting Hacamatı",
+      "f1Desc": "Doğal yüz ovali toparlama ve kolajen uyarımı",
+      "f2Title": "Postür, Diyafram & Pelvik Taban",
+      "f2Desc": "Omurga dengesi ve bütünsel kadın sağlığı",
+      "f3Title": "Kendi Kendine Bakım Rutini",
+      "f3Desc": "Evde sürdürülebilir kişisel bakım ustalığı",
+      "natural": "%100 Doğal & Cerrahi Müdahalesiz",
+      "badgeTitle": "Sertifikalı & Uzman",
+      "badgeDesc": "Kişiye Özel Bütünsel Seanslar"
+    },
+    "gift": {
+      "brand": "VITALINDA ATÖLYESİ",
+      "motto": "Kendine iyi bak, çünkü sen değerlisin. 🌸",
+      "i1Title": "YÜZ MASAJI",
+      "i1Desc": "Rahatlatıcı & Canlandırıcı",
+      "i2Title": "YÜZ GERME",
+      "i2Desc": "Lifting Masajı",
+      "i3Title": "GUA SHA TAŞI",
+      "i3Desc": "Detoks & Sıkılaştırıcı",
+      "shareLine": "Güzelliği paylaş, mutluluğu katla...",
+      "step1": "Arkadaşların randevu alırken senin adını belirtsin.",
+      "step2": "3. seans tamamlandığında ücretsiz seans hakkın anında tanımlansın!",
+      "bookingService": "Hediye Kartı & Tavsiye Programı"
+    },
+    "gallery": {
+      "eyebrow": "Stüdyo ve Kartvizit Kataloğu",
+      "title": "Vitalinda Orijinal Broşür & Hediye Kartları",
+      "card1Alt": "Vitalinda Sağlıklı Yaşam ve Güzellik Atölyesi Hizmet Kartı",
+      "card1Title": "Vitalinda Hizmet & Bakım Matrisi",
+      "card1Desc": "Cilt Temizliği, Sağlık İçin Hacamat, Yüz Lifting Hacamatı, Masaj (TR/RU)",
+      "card2Alt": "Vitalinda Sana Özel Hediye Kartı",
+      "card2Title": "Özel Hediye & Tavsiye Kartı",
+      "card2Desc": "Cilt Bakımı, Yüz Masajı, Gua Sha Taşı ve Hacamat Hediye Seansları"
+    },
+    "quiz": {
+      "r1Title": "Yüz Lifting Hacamatı & Gua Sha Masajı",
+      "r1Desc": "Yüz ovalinizi toparlamak, ödemi tahliye etmek ve kolajen üretimini tetiklemek için ideal başlangıç seansı.",
+      "r2Title": "Sağlık İçin Hacamat & Analiz Sonrası Yüz Masajı",
+      "r2Desc": "Sırt, boyun ve yüz gerginliklerinizi çözmek, kan dolaşımını hızlandırıp detoks sağlamak için en etkili ikili.",
+      "r3Desc": "Kendi yüzünüzü ve bedeninizi tanıyıp evinizde sürdürülebilir bir bakım ve postür rutini kurmanız için 7 modüllük özel akademi."
+    },
+    "booking": {
+      "groupSessions": "Seanslar",
+      "groupAcademy": "Eğitim & Akademi",
+      "datePlaceholder": "Örn: Hafta içi öğleden sonra / 15:00",
+      "msgTitle": "Vitalinda Randevu & Bilgi Talebi",
+      "msgName": "İsim",
+      "msgService": "Hizmet/Eğitim",
+      "msgDate": "Tercih Edilen Zaman",
+      "msgDateDefault": "En yakın uygun zaman",
+      "msgNote": "Not",
+      "msgNoteDefault": "Yok",
+      "msgFooter": "Vitalinda web sitesi üzerinden gönderildi."
+    },
+    "philosophy": {
+      "balanceElement": "Bütünsel Denge Unsuru"
+    },
+    "services": {
+      "benefitsTitle": "Uygulama Faydaları & Etkileri"
+    }
   }
 };

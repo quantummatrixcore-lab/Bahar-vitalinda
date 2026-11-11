@@ -1,38 +1,29 @@
 import React from 'react';
-import { Heart, Clock, MapPin, Sparkles } from 'lucide-react';
+import { getWhatsAppUrl } from '../config.js';
+import { Heart, Clock } from 'lucide-react';
+import { Logo } from './Logo.jsx';
 
 export const Footer = ({ t, onOpenBooking }) => {
-  const phone = '905468203948';
-  const isMobile = typeof window !== 'undefined' && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  const waUrl = isMobile 
-    ? `https://wa.me/${phone}`
-    : `https://web.whatsapp.com/send?phone=${phone}`;
+  const waUrl = getWhatsAppUrl();
 
   return (
-    <footer id="contact" className="bg-[#231617] text-[#FAF4F0] pt-16 pb-12 border-t border-[#D4AF37]/30 relative overflow-hidden">
+    <footer id="contact" className="bg-ink text-ivory pt-16 pb-12 border-t border-gold/30 relative overflow-hidden">
       
       {/* Glow background */}
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#3D2527]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-ivory/15">
           
           {/* Col 1: Brand Info */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#3B2527] to-[#5E3B3E] flex items-center justify-center text-[#E8C872] shadow-md border border-[#D4AF37]/40">
-                <span className="font-serif-luxury font-bold text-xl tracking-wider">V</span>
-              </div>
-              <span className="font-serif-luxury font-bold text-2xl tracking-widest text-[#FAF4F0]">
-                VITALINDA
-              </span>
-            </div>
+            <Logo tone="dark" size={44} tagline={t.ui.brandTagline} />
 
-            <p className="text-xs sm:text-sm text-[#D8C0B8] leading-relaxed max-w-sm">
+            <p className="text-xs sm:text-sm text-sand leading-relaxed max-w-sm">
               {t.footer.tagline}
             </p>
 
-            <p className="text-xs font-semibold tracking-widest text-[#E8C872] uppercase">
+            <p className="font-serif-luxury italic text-lg text-gold-soft">
               {t.footer.moto}
             </p>
 
@@ -41,7 +32,7 @@ export const Footer = ({ t, onOpenBooking }) => {
                 href="https://instagram.com/vitalinda_1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-[#361E20] hover:bg-[#8B3A4A] flex items-center justify-center text-[#E8C872] transition-colors border border-[#D4AF37]/30 cursor-pointer"
+                className="w-10 h-10 rounded-full bg-ink hover:bg-rose-deep flex items-center justify-center text-gold-soft transition-colors border border-gold/30 cursor-pointer"
                 title="Instagram @vitalinda_1"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -53,7 +44,7 @@ export const Footer = ({ t, onOpenBooking }) => {
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-[#361E20] hover:bg-[#25D366] flex items-center justify-center text-[#E8C872] hover:text-white transition-colors border border-[#D4AF37]/30 cursor-pointer"
+                className="w-10 h-10 rounded-full bg-ink hover:bg-[#25D366] flex items-center justify-center text-gold-soft hover:text-white transition-colors border border-gold/30 cursor-pointer"
                 title="WhatsApp"
               >
                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -65,39 +56,38 @@ export const Footer = ({ t, onOpenBooking }) => {
 
           {/* Col 2: Navigation */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="font-serif-luxury font-bold text-base text-[#FAF4F0] tracking-wider uppercase">
+            <h4 className="font-serif-luxury font-semibold text-xl text-ivory">
               {t.footer.quickLinks}
             </h4>
-            <ul className="space-y-2 text-xs text-[#D8C0B8]">
-              <li><a href="#services" className="hover:text-[#E8C872] transition-colors">{t.nav.services}</a></li>
-              <li><a href="#academy" className="hover:text-[#E8C872] transition-colors">{t.nav.academy}</a></li>
-              <li><a href="#philosophy" className="hover:text-[#E8C872] transition-colors">{t.nav.philosophy}</a></li>
-              <li><a href="#quiz" className="hover:text-[#E8C872] transition-colors">{t.nav.quiz}</a></li>
-              <li><a href="#gift-card" className="hover:text-[#E8C872] transition-colors">{t.nav.giftCard}</a></li>
-              <li><a href="#reviews" className="hover:text-[#E8C872] transition-colors">{t.nav.reviews}</a></li>
+            <ul className="space-y-2.5 text-sm text-sand">
+              <li><a href="#services" className="hover:text-gold-soft transition-colors">{t.nav.services}</a></li>
+              <li><a href="#academy" className="hover:text-gold-soft transition-colors">{t.nav.academy}</a></li>
+              <li><a href="#philosophy" className="hover:text-gold-soft transition-colors">{t.nav.philosophy}</a></li>
+              <li><a href="#quiz" className="hover:text-gold-soft transition-colors">{t.nav.quiz}</a></li>
+              <li><a href="#gift-card" className="hover:text-gold-soft transition-colors">{t.nav.giftCard}</a></li>
+              <li><a href="#reviews" className="hover:text-gold-soft transition-colors">{t.nav.reviews}</a></li>
             </ul>
           </div>
 
           {/* Col 3: Contact & Hours */}
-          <div className="lg:col-span-4 space-y-3 text-xs text-[#D8C0B8]">
-            <h4 className="font-serif-luxury font-bold text-base text-[#FAF4F0] tracking-wider uppercase">
+          <div className="lg:col-span-4 space-y-3 text-sm text-sand">
+            <h4 className="font-serif-luxury font-semibold text-xl text-ivory">
               {t.nav.contact}
             </h4>
             
             <div className="flex items-start gap-2.5">
-              <Clock className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
+              <Clock className="w-4 h-4 text-gold shrink-0 mt-0.5" />
               <span>{t.footer.workingHours}</span>
             </div>
 
             <div className="flex items-start gap-2.5">
-              <span className="text-[#D4AF37] font-bold">IG:</span>
-              <span>Instagram: <a href="https://instagram.com/vitalinda_1" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#E8C872]">@vitalinda_1</a></span>
+              <span>Instagram: <a href="https://instagram.com/vitalinda_1" target="_blank" rel="noopener noreferrer" className="underline hover:text-gold-soft">@vitalinda_1</a></span>
             </div>
 
             <div className="pt-2">
               <button
                 onClick={() => onOpenBooking()}
-                className="bg-gradient-to-r from-[#D4AF37] to-[#C59A4E] text-[#2D1B1D] px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm hover:brightness-110 transition-all cursor-pointer font-sans"
+                className="bg-gold-soft text-ink px-6 py-3 rounded-full text-sm font-semibold hover:bg-ivory transition-colors cursor-pointer"
               >
                 {t.nav.bookNow}
               </button>
@@ -107,12 +97,12 @@ export const Footer = ({ t, onOpenBooking }) => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#9E8580]">
-          <p>© {new Date().getFullYear()} Vitalinda Atölyesi. {t.footer.rights}</p>
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone">
+          <p>© {new Date().getFullYear()} {t.ui.workshopName}. {t.footer.rights}</p>
           <div className="flex items-center gap-1">
-            <span>Designed with</span>
-            <Heart className="w-3.5 h-3.5 text-[#B56576] fill-[#B56576]" />
-            <span>for Natural Transformation</span>
+            <span>{t.ui.common.madeBefore}</span>
+            <Heart className="w-3.5 h-3.5 text-rose fill-rose" />
+            <span>{t.ui.common.madeAfter}</span>
           </div>
         </div>
 

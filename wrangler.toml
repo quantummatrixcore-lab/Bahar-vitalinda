@@ -1,0 +1,5 @@
+# Cloudflare Pages (direct upload). Deploy: npm run deploy
+# SPA fallback to index.html is automatic on Pages when dist has no 404.html.
+name = "bahar-vitalinda"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-11-01"
