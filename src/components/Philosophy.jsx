@@ -54,7 +54,7 @@ export const Philosophy = ({ t }) => {
 
                 <div className="mt-6 pt-4 border-t border-[#F0E0D8] flex items-center gap-2 text-xs font-semibold text-[#8B3A4A]">
                   <Check className="w-4 h-4 text-[#D4AF37]" />
-                  <span>Bütünsel Denge Unsuru</span>
+                  <span>{t.ui.philosophy.balanceElement}</span>
                 </div>
               </div>
             );

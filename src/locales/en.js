@@ -372,5 +372,83 @@ export const en = {
     "quickLinks": "Quick Navigation",
     "workingHours": "Hours: Monday - Saturday: 09:30 - 19:00",
     "instaHandle": "@vitalinda_1"
+  },
+  "ui": {
+    "meta": {
+      "title": "VITALINDA | Wellness & Beauty Studio | Inside-Out Transformation",
+      "description": "Women's Natural Beauty & Body Harmony Studio. Facial gymnastics, cupping (hijama), manual massage, kinesio taping, diaphragm and pelvic floor awareness."
+    },
+    "brandTagline": "Health • Sport • Beauty",
+    "studioName": "Vitalinda Studio",
+    "workshopName": "Vitalinda Studio",
+    "common": {
+      "scrollTop": "Back to top",
+      "whatsapp": "Chat with us on WhatsApp",
+      "toggleMenu": "Toggle menu",
+      "madeBefore": "Designed with",
+      "madeAfter": "for Natural Transformation"
+    },
+    "hero": {
+      "cardSubtitle": "Healthy Living & Beauty Studio",
+      "f1Title": "Facial Gymnastics & Lifting Cupping",
+      "f1Desc": "Natural facial contour lifting and collagen stimulation",
+      "f2Title": "Posture, Diaphragm & Pelvic Floor",
+      "f2Desc": "Spinal balance and holistic women's health",
+      "f3Title": "Daily Self-Care Ritual",
+      "f3Desc": "Sustainable personal care mastery at home",
+      "natural": "100% Natural & Non-Surgical",
+      "badgeTitle": "Certified & Expert",
+      "badgeDesc": "Personalized Holistic Sessions"
+    },
+    "gift": {
+      "brand": "VITALINDA STUDIO",
+      "motto": "Take care of yourself, because you are precious. 🌸",
+      "i1Title": "FACE MASSAGE",
+      "i1Desc": "Relaxing & Revitalizing",
+      "i2Title": "FACE LIFTING",
+      "i2Desc": "Lifting Massage",
+      "i3Title": "GUA SHA STONE",
+      "i3Desc": "Detox & Firming",
+      "shareLine": "Share the beauty, multiply the joy...",
+      "step1": "Ask your friends to mention your name when they book.",
+      "step2": "Once the 3rd session is completed, your free session is credited instantly!",
+      "bookingService": "Gift Card & Referral Program"
+    },
+    "gallery": {
+      "eyebrow": "Studio & Business Card Catalogue",
+      "title": "Vitalinda Original Brochure & Gift Cards",
+      "card1Alt": "Vitalinda Wellness and Beauty Studio service card",
+      "card1Title": "Vitalinda Service & Care Menu",
+      "card1Desc": "Facial Cleansing, Wellness Cupping, Facial Lifting Cupping, Massage (TR/RU)",
+      "card2Alt": "Vitalinda personal gift card",
+      "card2Title": "Exclusive Gift & Referral Card",
+      "card2Desc": "Skincare, Face Massage, Gua Sha Stone and Cupping gift sessions"
+    },
+    "quiz": {
+      "r1Title": "Facial Hijama Lifting & Gua Sha Massage",
+      "r1Desc": "The ideal first session to lift your facial contour, drain puffiness and trigger collagen production.",
+      "r2Title": "Wellness Cupping & Post-Analysis Face Massage",
+      "r2Desc": "The most effective duo to release back, neck and facial tension, boost circulation and support detox.",
+      "r3Desc": "A dedicated 7-module academy that teaches you to understand your own face and body and build a sustainable care and posture routine at home."
+    },
+    "booking": {
+      "groupSessions": "Treatments",
+      "groupAcademy": "Education & Academy",
+      "datePlaceholder": "e.g. Weekday afternoon / 3:00 PM",
+      "msgTitle": "Vitalinda Booking & Inquiry Request",
+      "msgName": "Name",
+      "msgService": "Service/Academy",
+      "msgDate": "Preferred Date/Time",
+      "msgDateDefault": "Soonest available",
+      "msgNote": "Note",
+      "msgNoteDefault": "None",
+      "msgFooter": "Sent via Vitalinda website."
+    },
+    "philosophy": {
+      "balanceElement": "Holistic Balance Element"
+    },
+    "services": {
+      "benefitsTitle": "Treatment Benefits & Effects"
+    }
   }
 };

@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import { Sparkles, ExternalLink } from 'lucide-react';
 
-export const OriginalCardsGallery = () => {
+export const OriginalCardsGallery = ({ t }) => {
   return (
     <section className="py-16 bg-[#FCF8F6] border-y border-[#EBDCD4]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -9,10 +9,10 @@ export const OriginalCardsGallery = () => {
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-[#8B3A4A] uppercase mb-1">
               <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-              <span>Stüdyo ve Kartvizit Kataloğu</span>
+              <span>{t.ui.gallery.eyebrow}</span>
             </div>
             <h3 className="font-serif-luxury font-bold text-2xl sm:text-3xl text-[#2D1B1D]">
-              Vitalinda Orijinal Broşür & Hediye Kartları
+              {t.ui.gallery.title}
             </h3>
           </div>
 
@@ -37,16 +37,16 @@ export const OriginalCardsGallery = () => {
             <div className="rounded-2xl overflow-hidden mb-4 relative aspect-[16/9] bg-[#FAF3F0] flex items-center justify-center">
               <img
                 src="/images/brand-card.jpeg"
-                alt="Vitalinda Sağlıklı Yaşam ve Güzellik Atölyesi Hizmet Kartı"
+                alt={t.ui.gallery.card1Alt}
                 className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
               />
             </div>
             <div className="px-2">
               <h4 className="font-serif-luxury font-bold text-lg text-[#2D1B1D]">
-                Vitalinda Hizmet & Bakım Matrisi
+                {t.ui.gallery.card1Title}
               </h4>
               <p className="text-xs text-[#7A6461] mt-1">
-                Cilt Temizliği, Sağlık İçin Hacamat, Yüz Lifting Hacamatı, Masaj (TR/RU)
+                {t.ui.gallery.card1Desc}
               </p>
             </div>
           </div>
@@ -56,16 +56,16 @@ export const OriginalCardsGallery = () => {
             <div className="rounded-2xl overflow-hidden mb-4 relative aspect-[16/9] bg-[#FAF3F0] flex items-center justify-center">
               <img
                 src="/images/gift-card.jpeg"
-                alt="Vitalinda Sana Özel Hediye Kartı"
+                alt={t.ui.gallery.card2Alt}
                 className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
               />
             </div>
             <div className="px-2">
               <h4 className="font-serif-luxury font-bold text-lg text-[#2D1B1D]">
-                Özel Hediye & Tavsiye Kartı
+                {t.ui.gallery.card2Title}
               </h4>
               <p className="text-xs text-[#7A6461] mt-1">
-                Cilt Bakımı, Yüz Masajı, Gua Sha Taşı ve Hacamat Hediye Seansları
+                {t.ui.gallery.card2Desc}
               </p>
             </div>
           </div>

@@ -87,7 +87,7 @@ export const Hero = ({ t, onOpenBooking }) => {
                   </div>
                   <div>
                     <h3 className="font-serif-luxury font-bold text-xl text-[#2D1B1D]">VITALINDA</h3>
-                    <p className="text-xs text-[#8C6D68] font-medium tracking-wide">Sağlıklı Yaşam & Güzellik Atölyesi</p>
+                    <p className="text-xs text-[#8C6D68] font-medium tracking-wide">{t.ui.hero.cardSubtitle}</p>
                   </div>
                 </div>
 
@@ -97,8 +97,8 @@ export const Hero = ({ t, onOpenBooking }) => {
                       01
                     </div>
                     <div>
-                      <p className="font-semibold text-[#2D1B1D]">Yüz Jimnastiği & Lifting Hacamatı</p>
-                      <p className="text-xs text-[#7A6461]">Doğal yüz ovali toparlama ve kolajen uyarımı</p>
+                      <p className="font-semibold text-[#2D1B1D]">{t.ui.hero.f1Title}</p>
+                      <p className="text-xs text-[#7A6461]">{t.ui.hero.f1Desc}</p>
                     </div>
                   </div>
 
@@ -107,8 +107,8 @@ export const Hero = ({ t, onOpenBooking }) => {
                       02
                     </div>
                     <div>
-                      <p className="font-semibold text-[#2D1B1D]">Postür, Diyafram & Pelvik Taban</p>
-                      <p className="text-xs text-[#7A6461]">Omurga dengesi ve bütünsel kadın sağlığı</p>
+                      <p className="font-semibold text-[#2D1B1D]">{t.ui.hero.f2Title}</p>
+                      <p className="text-xs text-[#7A6461]">{t.ui.hero.f2Desc}</p>
                     </div>
                   </div>
 
@@ -117,8 +117,8 @@ export const Hero = ({ t, onOpenBooking }) => {
                       03
                     </div>
                     <div>
-                      <p className="font-semibold text-[#2D1B1D]">Kendi Kendine Bakım Rutini</p>
-                      <p className="text-xs text-[#7A6461]">Evde sürdürülebilir kişisel bakım ustalığı</p>
+                      <p className="font-semibold text-[#2D1B1D]">{t.ui.hero.f3Title}</p>
+                      <p className="text-xs text-[#7A6461]">{t.ui.hero.f3Desc}</p>
                     </div>
                   </div>
                 </div>
@@ -127,7 +127,7 @@ export const Hero = ({ t, onOpenBooking }) => {
                 <div className="mt-6 pt-5 border-t border-[#E8D1C5]/70 flex items-center justify-between text-xs">
                   <div className="flex items-center gap-1.5 text-[#5F7A64] font-semibold">
                     <ShieldCheck className="w-4 h-4" />
-                    <span>%100 Doğal & Cerrahi Müdahalesiz</span>
+                    <span>{t.ui.hero.natural}</span>
                   </div>
                   <span className="text-[#8C6D68] italic font-serif-luxury text-sm">Bahar Vitalinda</span>
                 </div>
@@ -139,8 +139,8 @@ export const Hero = ({ t, onOpenBooking }) => {
                   <Award className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold tracking-wider uppercase text-[#E8C872]">Sertifikalı & Uzman</div>
-                  <div className="text-[11px] text-[#D8C0B8]">Kişiye Özel Bütünsel Seanslar</div>
+                  <div className="text-xs font-bold tracking-wider uppercase text-[#E8C872]">{t.ui.hero.badgeTitle}</div>
+                  <div className="text-[11px] text-[#D8C0B8]">{t.ui.hero.badgeDesc}</div>
                 </div>
               </div>
 

@@ -37,7 +37,7 @@ export const GiftCardSection = ({ t, onSelectServiceForBooking }) => {
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-[#E8D1C5] pb-6 mb-6">
                 <div>
                   <span className="text-[11px] font-bold tracking-[0.25em] text-[#8C6D68] uppercase block">
-                    VITALINDA ATÖLYESİ
+                    {t.ui.gift.brand}
                   </span>
                   <h3 className="font-serif-luxury font-bold text-2xl sm:text-3xl text-[#2D1B1D] mt-1">
                     {t.giftCard.cardTitle}
@@ -57,22 +57,22 @@ export const GiftCardSection = ({ t, onSelectServiceForBooking }) => {
                 <p className="font-serif-luxury text-base sm:text-lg italic text-[#54383B]">
                   "{t.giftCard.cardQuote}"
                 </p>
-                <div className="text-xs text-[#8C6D68] mt-1">Kendine iyi bak, çünkü sen değerlisin. 🌸</div>
+                <div className="text-xs text-[#8C6D68] mt-1">{t.ui.gift.motto}</div>
               </div>
 
               {/* Services included on the card */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center text-xs mb-6">
                 <div className="p-3 rounded-xl bg-white/80 border border-[#EBDCD4]">
-                  <div className="font-bold text-[#2D1B1D]">YÜZ MASAJI</div>
-                  <div className="text-[11px] text-[#7A6461] mt-0.5">Rahatlatıcı & Canlandırıcı</div>
+                  <div className="font-bold text-[#2D1B1D]">{t.ui.gift.i1Title}</div>
+                  <div className="text-[11px] text-[#7A6461] mt-0.5">{t.ui.gift.i1Desc}</div>
                 </div>
                 <div className="p-3 rounded-xl bg-white/80 border border-[#EBDCD4]">
-                  <div className="font-bold text-[#2D1B1D]">YÜZ GERME</div>
-                  <div className="text-[11px] text-[#7A6461] mt-0.5">Lifting Masajı</div>
+                  <div className="font-bold text-[#2D1B1D]">{t.ui.gift.i2Title}</div>
+                  <div className="text-[11px] text-[#7A6461] mt-0.5">{t.ui.gift.i2Desc}</div>
                 </div>
                 <div className="p-3 rounded-xl bg-white/80 border border-[#EBDCD4]">
-                  <div className="font-bold text-[#2D1B1D]">GUA SHA TAŞI</div>
-                  <div className="text-[11px] text-[#7A6461] mt-0.5">Detoks & Sıkılaştırıcı</div>
+                  <div className="font-bold text-[#2D1B1D]">{t.ui.gift.i3Title}</div>
+                  <div className="text-[11px] text-[#7A6461] mt-0.5">{t.ui.gift.i3Desc}</div>
                 </div>
               </div>
 
@@ -109,23 +109,23 @@ export const GiftCardSection = ({ t, onSelectServiceForBooking }) => {
                   {t.giftCard.rewardText}
                 </span>
                 <span className="text-[11px] text-[#D8C0B8] mt-1 block">
-                  Güzelliği paylaş, mutluluğu katla...
+                  {t.ui.gift.shareLine}
                 </span>
               </div>
 
               <div className="space-y-3 text-xs text-[#D8C0B8] mb-6">
                 <div className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                  <span>Arkadaşların randevu alırken senin adını belirtsin.</span>
+                  <span>{t.ui.gift.step1}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                  <span>3. seans tamamlandığında ücretsiz seans hakkın anında tanımlansın!</span>
+                  <span>{t.ui.gift.step2}</span>
                 </div>
               </div>
 
               <button
-                onClick={() => onSelectServiceForBooking("Hediye Kartı & Tavsiye Programı")}
+                onClick={() => onSelectServiceForBooking(t.ui.gift.bookingService)}
                 className="w-full bg-gradient-to-r from-[#D4AF37] to-[#C59A4E] text-[#2D1B1D] py-4 rounded-full text-xs font-bold tracking-widest uppercase shadow-lg hover:brightness-110 transition-all flex items-center justify-center gap-2 cursor-pointer font-sans"
               >
                 <span>{t.giftCard.claimBtn}</span>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { getWhatsAppUrl } from '../config.js';
 import { X, Send, Calendar, User, Phone, BookOpen, MessageSquare, Sparkles } from 'lucide-react';
 
 export const BookingModal = ({ isOpen, onClose, t, lang, preSelectedService }) => {
@@ -24,40 +25,14 @@ export const BookingModal = ({ isOpen, onClose, t, lang, preSelectedService }) =
     e.preventDefault();
 
     // Format WhatsApp message according to active language
-    let text = '';
-    if (lang === 'tr') {
-      text = `🌸 *Vitalinda Randevu & Bilgi Talebi*\n\n` +
-        `👤 *İsim:* ${formData.fullName}\n` +
-        `💆‍♀️ *Hizmet/Eğitim:* ${formData.service}\n` +
-        `📅 *Tercih Edilen Zaman:* ${formData.datePref || 'En yakın uygun zaman'}\n` +
-        `📝 *Not:* ${formData.note || 'Yok'}\n\n` +
-        `_Vitalinda web sitesi üzerinden gönderildi._`;
-    } else if (lang === 'ru') {
-      text = `🌸 *Vitalinda Запись на процедуру/обучение*\n\n` +
-        `👤 *Имя:* ${formData.fullName}\n` +
-        `💆‍♀️ *Услуга/Курс:* ${formData.service}\n` +
-        `📅 *Желаемая дата:* ${formData.datePref || 'Ближайшее свободное время'}\n` +
-        `📝 *Комментарий:* ${formData.note || 'Нет'}\n\n` +
-        `_Отправлено с сайта Vitalinda._`;
-    } else {
-      text = `🌸 *Vitalinda Booking & Inquiry Request*\n\n` +
-        `👤 *Name:* ${formData.fullName}\n` +
-        `💆‍♀️ *Service/Academy:* ${formData.service}\n` +
-        `📅 *Preferred Date/Time:* ${formData.datePref || 'Soonest available'}\n` +
-        `📝 *Note:* ${formData.note || 'None'}\n\n` +
-        `_Sent via Vitalinda website._`;
-    }
-
-    const encodedText = encodeURIComponent(text);
-    const phone = '905468203948';
-    
-    // Smart routing to avoid fallback page on desktop
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    const waUrl = isMobile 
-      ? `https://wa.me/${phone}?text=${encodedText}`
-      : `https://web.whatsapp.com/send?phone=${phone}&text=${encodedText}`;
-      
-    window.open(waUrl, '_blank');
+    const m = t.ui.booking;
+    const text = `🌸 *${m.msgTitle}*\n\n` +
+      `👤 *${m.msgName}:* ${formData.fullName}\n` +
+      `💆‍♀️ *${m.msgService}:* ${formData.service}\n` +
+      `📅 *${m.msgDate}:* ${formData.datePref || m.msgDateDefault}\n` +
+      `📝 *${m.msgNote}:* ${formData.note || m.msgNoteDefault}\n\n` +
+      `_${m.msgFooter}_`;
+    window.open(getWhatsAppUrl(text), '_blank');
     onClose();
   };
 
@@ -77,7 +52,7 @@ export const BookingModal = ({ isOpen, onClose, t, lang, preSelectedService }) =
         <div className="mb-6">
           <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#8B3A4A] tracking-wider uppercase mb-1">
             <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-            <span>Vitalinda Stüdyo</span>
+            <span>{t.ui.studioName}</span>
           </div>
           <h3 className="font-serif-luxury font-bold text-2xl sm:text-3xl text-[#2D1B1D]">
             {t.booking.modalTitle}
@@ -118,14 +93,14 @@ export const BookingModal = ({ isOpen, onClose, t, lang, preSelectedService }) =
                 onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                 className="w-full pl-10 pr-4 py-3 rounded-xl border border-[#EBDCD4] bg-[#FCF8F6] text-sm text-[#2D1B1D] focus:outline-none focus:border-[#B56576] focus:bg-white transition-all"
               >
-                <optgroup label="Seanslar / Treatments">
+                <optgroup label={t.ui.booking.groupSessions}>
                   {t.services.items.map((srv) => (
                     <option key={srv.id} value={srv.name}>{srv.name}</option>
                   ))}
                 </optgroup>
-                <optgroup label="Eğitim & Akademi">
+                <optgroup label={t.ui.booking.groupAcademy}>
                   <option value={t.academy.title}>{t.academy.title}</option>
-                  <option value="Hediye Kartı / Tavsiye Programı">{t.giftCard.cardTitle}</option>
+                  <option value={t.ui.gift.bookingService}>{t.ui.gift.bookingService}</option>
                 </optgroup>
               </select>
             </div>
@@ -141,7 +116,7 @@ export const BookingModal = ({ isOpen, onClose, t, lang, preSelectedService }) =
                 type="text"
                 value={formData.datePref}
                 onChange={(e) => setFormData({ ...formData, datePref: e.target.value })}
-                placeholder="Örn: Hafta içi öğleden sonra / 15:00"
+                placeholder={t.ui.booking.datePlaceholder}
                 className="w-full pl-10 pr-4 py-3 rounded-xl border border-[#EBDCD4] bg-[#FCF8F6] text-sm text-[#2D1B1D] focus:outline-none focus:border-[#B56576] focus:bg-white transition-all"
               />
             </div>

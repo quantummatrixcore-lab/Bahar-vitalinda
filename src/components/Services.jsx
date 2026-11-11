@@ -5,13 +5,6 @@ export const Services = ({ t, onSelectServiceForBooking }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [activeModalItem, setActiveModalItem] = useState(null);
 
-  const categories = [
-    { id: 'all', label: 'Tüm Seanslar / All' },
-    { id: 'skincare', label: 'Cilt & Masaj' },
-    { id: 'cupping', label: 'Hacamat & Detoks' },
-    { id: 'lifting', label: 'Lifting & Estetik' }
-  ];
-
   const items = t.services.items;
 
   return (
@@ -122,7 +115,7 @@ export const Services = ({ t, onSelectServiceForBooking }) => {
 
             <div className="bg-[#FAF3F0] rounded-2xl p-5 mb-6 border border-[#EBDCD4]">
               <h4 className="font-semibold text-xs text-[#8B3A4A] tracking-wider uppercase mb-3">
-                Uygulama Faydaları & Etkileri
+                {t.ui.services.benefitsTitle}
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {activeModalItem.benefits.map((b, idx) => (

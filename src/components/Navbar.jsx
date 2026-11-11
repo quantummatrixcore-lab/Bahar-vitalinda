@@ -45,7 +45,7 @@ export const Navbar = ({ lang, setLang, t, onOpenBooking }) => {
                 VITALINDA
               </span>
               <span className="text-[10px] tracking-[0.25em] text-[#8C6D68] uppercase block mt-0.5 font-medium">
-                Sağlık • Spor • Güzellik
+                {t.ui.brandTagline}
               </span>
             </div>
           </a>
@@ -115,7 +115,7 @@ export const Navbar = ({ lang, setLang, t, onOpenBooking }) => {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg text-[#2D1B1D] hover:bg-[#F2E5E0] transition-colors"
-              aria-label="Toggle Menu"
+              aria-label={t.ui.common.toggleMenu}
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>

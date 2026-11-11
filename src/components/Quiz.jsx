@@ -18,21 +18,21 @@ export const Quiz = ({ t, onSelectServiceForBooking }) => {
   const getRecommendation = () => {
     if (answers.q1 === 1 || answers.q2 === 1) {
       return {
-        title: "Yüz Lifting Hacamatı & Gua Sha Masajı",
-        desc: "Yüz ovalinizi toparlamak, ödemi tahliye etmek ve kolajen üretimini tetiklemek için ideal başlangıç seansı.",
-        service: "Yüz Lifting Hacamatı"
+        title: t.ui.quiz.r1Title,
+        desc: t.ui.quiz.r1Desc,
+        service: t.services.items[2]?.name
       };
     } else if (answers.q1 === 2 || answers.q2 === 2) {
       return {
-        title: "Sağlık İçin Hacamat & Analiz Sonrası Yüz Masajı",
-        desc: "Sırt, boyun ve yüz gerginliklerinizi çözmek, kan dolaşımını hızlandırıp detoks sağlamak için en etkili ikili.",
-        service: "Sağlık İçin Hacamat"
+        title: t.ui.quiz.r2Title,
+        desc: t.ui.quiz.r2Desc,
+        service: t.services.items[1]?.name
       };
     } else {
       return {
-        title: "Kadının Doğal Güzellik ve Beden Dengesi Eğitimi",
-        desc: "Kendi yüzünüzü ve bedeninizi tanıyıp evinizde sürdürülebilir bir bakım ve postür rutini kurmanız için 7 modüllük özel akademi.",
-        service: "Kadının Doğal Güzellik ve Beden Dengesi Eğitimi"
+        title: t.academy.title,
+        desc: t.ui.quiz.r3Desc,
+        service: t.academy.title
       };
     }
   };

@@ -1,12 +1,9 @@
 import React from 'react';
+import { getWhatsAppUrl } from '../config.js';
 import { Heart, Clock, MapPin, Sparkles } from 'lucide-react';
 
 export const Footer = ({ t, onOpenBooking }) => {
-  const phone = '905468203948';
-  const isMobile = typeof window !== 'undefined' && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  const waUrl = isMobile 
-    ? `https://wa.me/${phone}`
-    : `https://web.whatsapp.com/send?phone=${phone}`;
+  const waUrl = getWhatsAppUrl();
 
   return (
     <footer id="contact" className="bg-[#231617] text-[#FAF4F0] pt-16 pb-12 border-t border-[#D4AF37]/30 relative overflow-hidden">
@@ -108,11 +105,11 @@ export const Footer = ({ t, onOpenBooking }) => {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#9E8580]">
-          <p>© {new Date().getFullYear()} Vitalinda Atölyesi. {t.footer.rights}</p>
+          <p>© {new Date().getFullYear()} {t.ui.workshopName}. {t.footer.rights}</p>
           <div className="flex items-center gap-1">
-            <span>Designed with</span>
+            <span>{t.ui.common.madeBefore}</span>
             <Heart className="w-3.5 h-3.5 text-[#B56576] fill-[#B56576]" />
-            <span>for Natural Transformation</span>
+            <span>{t.ui.common.madeAfter}</span>
           </div>
         </div>
 

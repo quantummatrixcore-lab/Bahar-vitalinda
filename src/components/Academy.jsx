@@ -126,7 +126,7 @@ export const Academy = ({ t, onSelectServiceForBooking }) => {
               </p>
 
               <button
-                onClick={() => onSelectServiceForBooking("Kadının Doğal Güzellik ve Beden Dengesi Eğitimi")}
+                onClick={() => onSelectServiceForBooking(t.academy.title)}
                 className="w-full bg-gradient-to-r from-[#2D1B1D] via-[#4A2E30] to-[#2D1B1D] text-[#FAF4F0] py-4 rounded-full text-xs font-bold tracking-widest uppercase shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 border border-[#D4AF37]/50 cursor-pointer"
               >
                 <span>{t.academy.enrollBtn}</span>
