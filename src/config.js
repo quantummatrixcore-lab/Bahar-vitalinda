@@ -1,4 +1,5 @@
 export const WHATSAPP_PHONE = '905468203948';
+export const WHATSAPP_DISPLAY = '+90 546 820 39 48';
 
 const isMobileDevice = () =>
   typeof navigator !== 'undefined' && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);

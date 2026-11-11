@@ -1,5 +1,5 @@
 import React from 'react';
-import { getWhatsAppUrl } from '../config.js';
+import { getWhatsAppUrl, WHATSAPP_DISPLAY } from '../config.js';
 import { Heart, Clock } from 'lucide-react';
 import { Logo } from './Logo.jsx';
 
@@ -78,6 +78,10 @@ export const Footer = ({ t, onOpenBooking }) => {
             <div className="flex items-start gap-2.5">
               <Clock className="w-4 h-4 text-gold shrink-0 mt-0.5" />
               <span>{t.footer.workingHours}</span>
+            </div>
+
+            <div className="flex items-start gap-2.5">
+              <span>WhatsApp: <a href={waUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-gold-soft whitespace-nowrap">{WHATSAPP_DISPLAY}</a></span>
             </div>
 
             <div className="flex items-start gap-2.5">
