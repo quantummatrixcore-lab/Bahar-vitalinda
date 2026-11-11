@@ -382,6 +382,7 @@ export const tr = {
     "studioName": "Vitalinda Stüdyo",
     "workshopName": "Vitalinda Atölyesi",
     "common": {
+      "close": "Kapat",
       "scrollTop": "Yukarı Çık",
       "whatsapp": "WhatsApp ile Hızlı İletişim",
       "toggleMenu": "Menüyü Aç / Kapat",

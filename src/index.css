@@ -1,70 +1,142 @@
 ﻿@import "tailwindcss";
 
+/* Vitalinda identity: ivory paper, olive leaf, dusty rose petal, brushed gold.
+   Sampled from the printed brand card (public/images/brand-card.jpeg). */
+@theme {
+  --color-ivory: #FBF6EE;
+  --color-cream: #F4ECDF;
+  --color-line: #E6D9C6;
+  --color-sand: #CDBBA2;
+
+  --color-ink: #2A2D1C;
+  --color-ink-soft: #4A4636;
+  --color-muted: #665F4F;
+  --color-stone: #766F5E;
+
+  --color-olive-900: #353A22;
+  --color-olive-800: #434A2B;
+  --color-olive-700: #525A35;
+  --color-olive: #6B7045;
+  --color-olive-soft: #A9AD8A;
+
+  --color-rose-deep: #9A5750;
+  --color-rose: #C0807A;
+  --color-rose-soft: #F1DDD6;
+
+  --color-gold-deep: #94712F;
+  --color-gold: #B8924C;
+  --color-gold-soft: #D9BC84;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
 @layer base {
-  :root {
-    --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
-    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6.5rem;
+  }
+
+  body {
+    background: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+
+  ::selection {
+    background: var(--color-rose-soft);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold-deep);
+    outline-offset: 3px;
+    border-radius: 4px;
   }
 }
 
 .font-serif-luxury {
-  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  font-family: var(--font-display);
 }
 
 .font-sans-clean {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: var(--font-sans);
 }
 
-/* Custom Luxury Gradients & Shadows */
+/* Surfaces */
 .bg-gold-gradient {
-  background: linear-gradient(135deg, #D4AF37 0%, #E8C872 50%, #B38048 100%);
+  background: linear-gradient(135deg, #B8924C 0%, #D9BC84 50%, #94712F 100%);
 }
 
 .bg-rose-gradient {
-  background: linear-gradient(135deg, #FFF5F2 0%, #FBECE8 50%, #F5DAD5 100%);
+  background: linear-gradient(135deg, #FBF6EE 0%, #F6E8E1 50%, #F1DDD6 100%);
 }
 
 .bg-dark-luxury {
-  background: linear-gradient(145deg, #231617 0%, #351F22 50%, #1A0E10 100%);
+  background: linear-gradient(145deg, #2A2D1C 0%, #353A22 55%, #22251A 100%);
 }
 
 .text-gold-gradient {
-  background: linear-gradient(135deg, #C59A4E 0%, #E0BC6B 50%, #A97A35 100%);
+  background: linear-gradient(135deg, #94712F 0%, #C9A461 50%, #8A6829 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-rose-gold {
-  background: linear-gradient(135deg, #B56576 0%, #D48C9A 50%, #9E4759 100%);
+  background: linear-gradient(135deg, #9A5750 0%, #C0807A 50%, #8C4B45 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 253, 249, 0.86);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(230, 205, 195, 0.45);
+  border: 1px solid rgba(230, 217, 198, 0.7);
 }
 
 .glass-card-dark {
-  background: rgba(35, 22, 23, 0.75);
+  background: rgba(42, 45, 28, 0.82);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(212, 175, 55, 0.25);
+  border: 1px solid rgba(184, 146, 76, 0.3);
 }
 
 .gold-border-glow {
-  box-shadow: 0 0 25px -5px rgba(212, 175, 55, 0.25);
+  box-shadow: 0 0 25px -5px rgba(184, 146, 76, 0.28);
 }
 
 .rose-border-glow {
-  box-shadow: 0 10px 30px -10px rgba(181, 101, 118, 0.2);
+  box-shadow: 0 10px 30px -10px rgba(192, 128, 122, 0.25);
 }
 
-/* Animations */
+/* Hairline gold rule with a centre seed, as on the brand card */
+.gold-rule {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-gold);
+}
+.gold-rule::before,
+.gold-rule::after {
+  content: '';
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, currentColor);
+}
+.gold-rule::after {
+  background: linear-gradient(90deg, currentColor, transparent);
+}
+
+/* Arched photo frame: the oval of the card emblem */
+.arch {
+  border-radius: 999px 999px 1.25rem 1.25rem;
+}
+
 @keyframes floatSlow {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  0%, 100% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(-8px) rotate(1deg); }
 }
 
@@ -81,17 +153,29 @@
   animation: pulseGlow 4s ease-in-out infinite;
 }
 
-/* Smooth custom scrollbar */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #FDF8F6;
+  background: var(--color-ivory);
 }
 ::-webkit-scrollbar-thumb {
-  background: #D9B8AD;
+  background: var(--color-sand);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #C4988A;
+  background: var(--color-olive-soft);
 }

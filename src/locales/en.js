@@ -382,6 +382,7 @@ export const en = {
     "studioName": "Vitalinda Studio",
     "workshopName": "Vitalinda Studio",
     "common": {
+      "close": "Close",
       "scrollTop": "Back to top",
       "whatsapp": "Chat with us on WhatsApp",
       "toggleMenu": "Toggle menu",

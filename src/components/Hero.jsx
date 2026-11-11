@@ -1,152 +1,102 @@
 ﻿import React from 'react';
-import { Sparkles, ArrowRight, ShieldCheck, Heart, Award, CheckCircle2, ChevronRight } from 'lucide-react';
+import { ArrowRight, ShieldCheck } from 'lucide-react';
+import { LogoMark } from './Logo.jsx';
+import { Sprig } from './icons.jsx';
 
 export const Hero = ({ t, onOpenBooking }) => {
+  const focus = [
+    [t.ui.hero.f1Title, t.ui.hero.f1Desc],
+    [t.ui.hero.f2Title, t.ui.hero.f2Desc],
+    [t.ui.hero.f3Title, t.ui.hero.f3Desc]
+  ];
+
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-to-b from-[#FCF8F6] via-[#FAF3F0] to-[#FCF8F6]">
-      {/* Background Decorative Glow Elements */}
-      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-[#F5DAD5]/40 via-[#E8C872]/20 to-transparent rounded-full blur-3xl pointer-events-none -z-0"></div>
-      <div className="absolute top-40 right-10 w-72 h-72 bg-[#D4AF37]/10 rounded-full blur-2xl pointer-events-none -z-0"></div>
+    <section className="relative pt-36 pb-16 md:pt-44 md:pb-24 overflow-hidden bg-ivory">
+      {/* Watercolor washes, as on the printed card */}
+      <div className="absolute -top-24 -right-32 w-[34rem] h-[34rem] rounded-full bg-rose-soft/70 blur-3xl pointer-events-none" aria-hidden="true" />
+      <div className="absolute top-1/2 -left-40 w-[28rem] h-[28rem] rounded-full bg-olive-soft/25 blur-3xl pointer-events-none" aria-hidden="true" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          {/* Left Column: Text Content */}
-          <div className="lg:col-span-7 space-y-7 text-center lg:text-left">
-            
-            {/* Top Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F3E5DC]/80 border border-[#E0CBC2] text-[#693B40] text-xs font-semibold tracking-wider uppercase shadow-xs">
-              <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-              <span>{t.hero.badge}</span>
-            </div>
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-10 items-center">
+          <div className="lg:col-span-7">
+            <p className="text-sm font-medium text-rose-deep">{t.hero.badge}</p>
 
-            {/* Main Headline */}
-            <h1 className="font-serif-luxury text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold text-[#2D1B1D] tracking-tight leading-[1.12]">
-              {t.hero.titleStart}{' '}
-              <span className="text-gold-gradient italic font-serif-luxury font-normal block sm:inline">
-                {t.hero.titleHighlight}
-              </span>
+            <h1 className="mt-5 font-serif-luxury font-medium text-ink text-[3.25rem] leading-[1.02] sm:text-7xl xl:text-[5.5rem] tracking-[-0.01em]">
+              {t.hero.titleStart}
+              <br />
+              <span className="italic">{t.hero.titleHighlight}</span>
             </h1>
 
-            {/* Slogan */}
-            <p className="text-sm sm:text-base font-semibold tracking-[0.2em] text-[#8C5D53] uppercase">
-              {t.hero.slogan}
-            </p>
+            <p className="mt-6 font-serif-luxury italic text-xl sm:text-2xl text-gold-deep">{t.hero.slogan}</p>
 
-            {/* Subtitle */}
-            <p className="text-base sm:text-lg text-[#5A4946] max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-              {t.hero.subtitle}
-            </p>
+            <p className="mt-6 text-base sm:text-lg text-ink-soft max-w-xl leading-relaxed">{t.hero.subtitle}</p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <div className="mt-9 flex flex-col sm:flex-row sm:items-center gap-4">
               <button
                 onClick={() => onOpenBooking()}
-                className="w-full sm:w-auto bg-gradient-to-r from-[#2D1B1D] via-[#4A2E30] to-[#2D1B1D] text-[#FAF4F0] px-8 py-4 rounded-full text-sm font-bold tracking-wider uppercase shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-3 border border-[#D4AF37]/50 cursor-pointer"
+                className="inline-flex items-center justify-center gap-3 rounded-full bg-ink text-ivory px-8 py-4 text-sm font-semibold hover:bg-olive-800 transition-colors cursor-pointer"
               >
                 <span>{t.hero.ctaPrimary}</span>
-                <ArrowRight className="w-4 h-4 text-[#D4AF37]" />
+                <ArrowRight className="w-4 h-4 text-gold-soft" strokeWidth={1.5} />
               </button>
-
               <a
                 href="#academy"
-                className="w-full sm:w-auto bg-white/80 hover:bg-white text-[#2D1B1D] px-7 py-4 rounded-full text-sm font-semibold tracking-wide border border-[#E0CBC2] hover:border-[#B56576] shadow-xs hover:shadow-md transition-all duration-300 flex items-center justify-center gap-2"
+                className="inline-flex items-center justify-center rounded-full border border-ink/25 text-ink px-7 py-4 text-sm font-semibold hover:border-ink hover:bg-white/60 transition-colors"
               >
-                <span>{t.hero.ctaSecondary}</span>
-                <ChevronRight className="w-4 h-4 text-[#8C5D53]" />
+                {t.hero.ctaSecondary}
               </a>
             </div>
 
-            {/* Trust Badges */}
-            <div className="pt-6 border-t border-[#E8D1C5]/60 grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <dl className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-y-6 border-t border-line pt-7">
               {t.hero.stats.map((stat, idx) => (
-                <div key={idx} className="text-center lg:text-left">
-                  <div className="font-serif-luxury text-2xl sm:text-3xl font-bold text-[#2D1B1D]">
-                    {stat.value}
-                  </div>
-                  <div className="text-xs text-[#7A6461] mt-0.5 font-medium">
-                    {stat.label}
-                  </div>
+                <div key={idx} className="sm:border-l sm:first:border-l-0 border-line sm:pl-5 sm:first:pl-0">
+                  <dd className="font-serif-luxury text-3xl sm:text-4xl font-medium text-ink">{stat.value}</dd>
+                  <dt className="mt-1 text-xs text-muted">{stat.label}</dt>
                 </div>
               ))}
-            </div>
-
+            </dl>
           </div>
 
-          {/* Right Column: Visual Luxury Cards Presentation */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative mx-auto max-w-md lg:max-w-none">
-              
-              {/* Main Card */}
-              <div className="glass-card rounded-3xl p-6 sm:p-8 shadow-2xl border border-[#E8D1C5] relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#D4AF37]/20 to-transparent rounded-bl-full pointer-events-none"></div>
+          {/* Arch panel: the oval of the brand emblem */}
+          <div className="lg:col-span-5">
+            <div className="relative mx-auto max-w-sm lg:max-w-none">
+              <div className="arch relative overflow-hidden bg-gradient-to-b from-rose-soft via-cream to-white border border-gold/40 px-7 sm:px-10 pt-16 pb-9 shadow-[0_30px_60px_-30px_rgba(42,45,28,0.35)]">
+                <Sprig className="absolute -left-3 bottom-0 h-72 text-olive" />
+                <Sprig className="absolute -right-3 bottom-0 h-64 text-rose" flip />
+                <div className="absolute inset-2.5 arch border border-gold/30 pointer-events-none" aria-hidden="true" />
 
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#3B2527] to-[#693B40] flex items-center justify-center text-[#E8C872] shadow-md border border-[#D4AF37]/30">
-                    <Heart className="w-7 h-7 text-[#E8C872]" />
-                  </div>
-                  <div>
-                    <h3 className="font-serif-luxury font-bold text-xl text-[#2D1B1D]">VITALINDA</h3>
-                    <p className="text-xs text-[#8C6D68] font-medium tracking-wide">{t.ui.hero.cardSubtitle}</p>
-                  </div>
-                </div>
+                <div className="relative text-center">
+                  <LogoMark size={92} className="mx-auto" />
+                  <p className="mt-4 font-serif-luxury text-3xl tracking-[0.22em] text-ink">VITALINDA</p>
+                  <p className="mt-1.5 text-xs text-stone">{t.ui.hero.cardSubtitle}</p>
 
-                <div className="space-y-3.5 text-sm text-[#4A3B39]">
-                  <div className="flex items-center gap-3 p-3 rounded-xl bg-white/70 border border-[#F0E0D8]">
-                    <div className="w-8 h-8 rounded-lg bg-[#F8EAE4] flex items-center justify-center text-[#9E4759] font-bold text-xs shrink-0">
-                      01
-                    </div>
-                    <div>
-                      <p className="font-semibold text-[#2D1B1D]">{t.ui.hero.f1Title}</p>
-                      <p className="text-xs text-[#7A6461]">{t.ui.hero.f1Desc}</p>
-                    </div>
+                  <div className="gold-rule my-7 mx-6">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold" />
                   </div>
 
-                  <div className="flex items-center gap-3 p-3 rounded-xl bg-white/70 border border-[#F0E0D8]">
-                    <div className="w-8 h-8 rounded-lg bg-[#F8EAE4] flex items-center justify-center text-[#9E4759] font-bold text-xs shrink-0">
-                      02
-                    </div>
-                    <div>
-                      <p className="font-semibold text-[#2D1B1D]">{t.ui.hero.f2Title}</p>
-                      <p className="text-xs text-[#7A6461]">{t.ui.hero.f2Desc}</p>
-                    </div>
-                  </div>
+                  <ul className="space-y-5">
+                    {focus.map(([title, desc]) => (
+                      <li key={title}>
+                        <p className="font-serif-luxury text-xl text-ink leading-snug">{title}</p>
+                        <p className="mt-0.5 text-xs text-muted">{desc}</p>
+                      </li>
+                    ))}
+                  </ul>
 
-                  <div className="flex items-center gap-3 p-3 rounded-xl bg-white/70 border border-[#F0E0D8]">
-                    <div className="w-8 h-8 rounded-lg bg-[#F8EAE4] flex items-center justify-center text-[#9E4759] font-bold text-xs shrink-0">
-                      03
-                    </div>
-                    <div>
-                      <p className="font-semibold text-[#2D1B1D]">{t.ui.hero.f3Title}</p>
-                      <p className="text-xs text-[#7A6461]">{t.ui.hero.f3Desc}</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Bottom Highlight */}
-                <div className="mt-6 pt-5 border-t border-[#E8D1C5]/70 flex items-center justify-between text-xs">
-                  <div className="flex items-center gap-1.5 text-[#5F7A64] font-semibold">
-                    <ShieldCheck className="w-4 h-4" />
+                  <div className="mt-8 inline-flex items-center gap-2 rounded-full bg-white/80 border border-line px-4 py-2 text-xs font-medium text-olive-700">
+                    <ShieldCheck className="w-4 h-4" strokeWidth={1.5} />
                     <span>{t.ui.hero.natural}</span>
                   </div>
-                  <span className="text-[#8C6D68] italic font-serif-luxury text-sm">Bahar Vitalinda</span>
                 </div>
               </div>
 
-              {/* Floating Badge */}
-              <div className="hidden sm:flex absolute -bottom-5 -left-5 bg-[#2D1B1D] text-[#FAF4F0] p-4 rounded-2xl shadow-xl border border-[#D4AF37]/40 items-center gap-3 animate-float">
-                <div className="w-10 h-10 rounded-xl bg-[#4A2E30] flex items-center justify-center text-[#D4AF37]">
-                  <Award className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold tracking-wider uppercase text-[#E8C872]">{t.ui.hero.badgeTitle}</div>
-                  <div className="text-[11px] text-[#D8C0B8]">{t.ui.hero.badgeDesc}</div>
-                </div>
+              <div className="relative -mt-5 mx-auto w-fit max-w-[90%] rounded-full bg-ink text-ivory px-5 py-2.5 text-xs shadow-lg text-center">
+                <span className="font-semibold text-gold-soft">{t.ui.hero.badgeTitle}</span>
+                <span className="mx-2 text-sand/60" aria-hidden="true">|</span>
+                <span className="text-sand">{t.ui.hero.badgeDesc}</span>
               </div>
-
             </div>
           </div>
-
         </div>
       </div>
     </section>

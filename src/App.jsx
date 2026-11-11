@@ -53,7 +53,7 @@ export default function App() {
   const waUrl = getWhatsAppUrl();
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden relative bg-[#FCF8F6] text-[#2D1B1D] selection:bg-[#F0DCD5] selection:text-[#3B2527] font-sans antialiased">
+    <div className="min-h-screen w-full overflow-x-hidden relative bg-ivory text-ink selection:bg-line selection:text-olive-800 font-sans antialiased">
       
       {/* Sticky Header Navigation */}
       <Navbar
@@ -125,7 +125,7 @@ export default function App() {
         {showScrollTop && (
           <button
             onClick={scrollToTop}
-            className="w-11 h-11 rounded-full bg-white text-[#2D1B1D] shadow-lg border border-[#E8D1C5] hover:bg-[#FAF3F0] flex items-center justify-center transition-all cursor-pointer"
+            className="w-11 h-11 rounded-full bg-white text-ink shadow-lg border border-line hover:bg-ivory flex items-center justify-center transition-all cursor-pointer"
             title={t.ui.common.scrollTop}
           >
             <ArrowUp className="w-5 h-5" />

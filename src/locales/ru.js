@@ -382,6 +382,7 @@ export const ru = {
     "studioName": "Студия Vitalinda",
     "workshopName": "Студия Vitalinda",
     "common": {
+      "close": "Закрыть",
       "scrollTop": "Наверх",
       "whatsapp": "Быстрая связь в WhatsApp",
       "toggleMenu": "Открыть / закрыть меню",

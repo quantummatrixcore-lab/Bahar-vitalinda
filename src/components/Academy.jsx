@@ -5,30 +5,27 @@ export const Academy = ({ t, onSelectServiceForBooking }) => {
   const [openModule, setOpenModule] = useState(0);
 
   return (
-    <section id="academy" className="py-20 md:py-28 bg-gradient-to-b from-[#FAF3F0] via-[#F6E9E4] to-[#FAF3F0] relative overflow-hidden">
+    <section id="academy" className="py-20 md:py-28 bg-gradient-to-b from-ivory via-cream to-ivory relative overflow-hidden">
       
       {/* Decorative Gold & Rose Elements */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#D4AF37]/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-10 left-0 w-96 h-96 bg-[#B56576]/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-10 left-0 w-96 h-96 bg-rose/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#2D1B1D] text-[#E8C872] text-xs font-semibold tracking-widest uppercase border border-[#D4AF37]/40 shadow-sm">
-            <GraduationCap className="w-4 h-4 text-[#D4AF37]" />
-            <span>{t.academy.badge}</span>
-          </div>
+          <p className="text-sm font-medium text-rose-deep">{t.academy.badge}</p>
 
-          <h2 className="font-serif-luxury text-3xl sm:text-4xl md:text-5xl font-bold text-[#2D1B1D] leading-tight">
+          <h2 className="font-serif-luxury font-medium text-4xl sm:text-5xl text-ink leading-[1.1]">
             {t.academy.title}
           </h2>
 
-          <p className="text-base sm:text-lg text-[#5C4A47] leading-relaxed">
+          <p className="text-base sm:text-lg text-ink-soft leading-relaxed">
             {t.academy.subtitle}
           </p>
 
-          <div className="p-4 rounded-2xl bg-white/80 border border-[#E0CBC2] text-sm font-serif-luxury text-[#4A2E30] italic font-semibold max-w-2xl mx-auto shadow-xs">
+          <div className="font-serif-luxury italic text-xl sm:text-2xl text-olive-700 max-w-2xl mx-auto pt-2">
             "{t.academy.highlight}"
           </div>
         </div>
@@ -38,8 +35,8 @@ export const Academy = ({ t, onSelectServiceForBooking }) => {
           
           {/* Left: 7 Modules Accordion */}
           <div className="lg:col-span-7 space-y-3.5">
-            <h3 className="font-serif-luxury font-bold text-2xl text-[#2D1B1D] mb-5 flex items-center gap-2">
-              <BookOpen className="w-5 h-5 text-[#8B3A4A]" />
+            <h3 className="font-serif-luxury font-semibold text-2xl text-ink mb-5 flex items-center gap-2">
+              <BookOpen className="w-5 h-5 text-rose-deep" />
               <span>{t.academy.syllabusTitle}</span>
             </h3>
 
@@ -50,8 +47,8 @@ export const Academy = ({ t, onSelectServiceForBooking }) => {
                   key={idx}
                   className={`rounded-2xl transition-all duration-300 border overflow-hidden ${
                     isOpen 
-                      ? 'bg-white shadow-lg border-[#D4AF37]/60' 
-                      : 'bg-white/70 hover:bg-white border-[#EBDCD4]'
+                      ? 'bg-white border-gold' 
+                      : 'bg-white/70 hover:bg-white border-line'
                   }`}
                 >
                   <button
@@ -59,25 +56,25 @@ export const Academy = ({ t, onSelectServiceForBooking }) => {
                     className="w-full p-5 text-left flex items-center justify-between gap-4 cursor-pointer"
                   >
                     <div className="flex items-center gap-4">
-                      <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#2D1B1D] to-[#4A2E30] text-[#E8C872] flex items-center justify-center font-bold text-xs shrink-0 shadow-xs">
+                      <span className="w-10 h-10 rounded-full border border-gold/70 text-gold-deep flex items-center justify-center font-serif-luxury text-lg shrink-0">
                         {mod.number}
                       </span>
-                      <span className="font-serif-luxury font-bold text-lg sm:text-xl text-[#2D1B1D]">
+                      <span className="font-serif-luxury font-semibold text-lg sm:text-xl text-ink">
                         {mod.title}
                       </span>
                     </div>
 
-                    <div className="text-[#8C6D68]">
+                    <div className="text-stone">
                       {isOpen ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
                     </div>
                   </button>
 
                   {isOpen && (
-                    <div className="px-5 pb-5 pt-1 border-t border-[#F5EAE6] bg-[#FCF8F6]/50">
-                      <ul className="space-y-2 text-xs sm:text-sm text-[#54423F]">
+                    <div className="px-5 pb-5 pt-1 border-t border-cream bg-ivory/50">
+                      <ul className="space-y-2 text-xs sm:text-sm text-ink-soft">
                         {mod.items.map((item, itemIdx) => (
                           <li key={itemIdx} className="flex items-start gap-2.5">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] shrink-0 mt-2"></span>
+                            <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-2"></span>
                             <span className="leading-relaxed">{item}</span>
                           </li>
                         ))}
@@ -93,20 +90,20 @@ export const Academy = ({ t, onSelectServiceForBooking }) => {
           <div className="lg:col-span-5 space-y-6">
             
             {/* Gains Box */}
-            <div className="bg-white rounded-3xl p-7 border border-[#EBDCD4] shadow-md">
+            <div className="bg-white rounded-[1.75rem] p-7 border border-line">
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-xl bg-[#F8EAE4] text-[#8B3A4A] flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-cream text-rose-deep flex items-center justify-center font-bold">
                   <Award className="w-5 h-5" />
                 </div>
-                <h3 className="font-serif-luxury font-bold text-xl text-[#2D1B1D]">
+                <h3 className="font-serif-luxury font-semibold text-xl text-ink">
                   {t.academy.gainsTitle}
                 </h3>
               </div>
 
-              <div className="space-y-3 text-xs sm:text-sm text-[#4E3D3A]">
+              <div className="space-y-3 text-xs sm:text-sm text-ink-soft">
                 {t.academy.gains.map((gain, gIdx) => (
                   <div key={gIdx} className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#5F7A64] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-olive shrink-0 mt-0.5" />
                     <span>{gain}</span>
                   </div>
                 ))}
@@ -114,23 +111,23 @@ export const Academy = ({ t, onSelectServiceForBooking }) => {
             </div>
 
             {/* Audience Box */}
-            <div className="glass-card rounded-3xl p-7 border border-[#E0CBC2] shadow-sm">
+            <div className="bg-rose-soft/50 rounded-[1.75rem] p-7 border border-line">
               <div className="flex items-center gap-3 mb-3">
-                <Users className="w-5 h-5 text-[#8B3A4A]" />
-                <h3 className="font-serif-luxury font-bold text-lg text-[#2D1B1D]">
+                <Users className="w-5 h-5 text-rose-deep" />
+                <h3 className="font-serif-luxury font-semibold text-lg text-ink">
                   {t.academy.audienceTitle}
                 </h3>
               </div>
-              <p className="text-xs sm:text-sm text-[#614F4C] leading-relaxed mb-5">
+              <p className="text-xs sm:text-sm text-muted leading-relaxed mb-5">
                 {t.academy.audienceDesc}
               </p>
 
               <button
                 onClick={() => onSelectServiceForBooking(t.academy.title)}
-                className="w-full bg-gradient-to-r from-[#2D1B1D] via-[#4A2E30] to-[#2D1B1D] text-[#FAF4F0] py-4 rounded-full text-xs font-bold tracking-widest uppercase shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 border border-[#D4AF37]/50 cursor-pointer"
+                className="w-full bg-ink hover:bg-olive-800 text-ivory py-4 rounded-full text-sm font-semibold transition-colors flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>{t.academy.enrollBtn}</span>
-                <ArrowRight className="w-4 h-4 text-[#D4AF37]" />
+                <ArrowRight className="w-4 h-4 text-gold" />
               </button>
             </div>
 

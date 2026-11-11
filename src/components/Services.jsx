@@ -1,149 +1,141 @@
-﻿import React, { useState } from 'react';
-import { Sparkles, Clock, CheckCircle2, ArrowRight, ShieldCheck, X } from 'lucide-react';
+﻿import React, { useState, useEffect } from 'react';
+import { Clock, Check, ArrowRight, X } from 'lucide-react';
+import { SERVICE_ICONS, IconLeaf } from './icons.jsx';
 
 export const Services = ({ t, onSelectServiceForBooking }) => {
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const [activeModalItem, setActiveModalItem] = useState(null);
-
+  const [activeItem, setActiveItem] = useState(null);
   const items = t.services.items;
 
-  return (
-    <section id="services" className="py-20 md:py-28 bg-[#FCF8F6] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-[#F3E5DC] text-[#7A3E48] text-xs font-semibold tracking-widest uppercase border border-[#E0CBC2]">
-            <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-            <span>{t.services.badge}</span>
-          </div>
+  useEffect(() => {
+    if (!activeItem) return undefined;
+    const onKey = (e) => e.key === 'Escape' && setActiveItem(null);
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [activeItem]);
 
-          <h2 className="font-serif-luxury text-3xl sm:text-4xl md:text-5xl font-bold text-[#2D1B1D]">
+  const ActiveIcon = activeItem ? SERVICE_ICONS[activeItem.id] || IconLeaf : null;
+
+  return (
+    <section id="services" className="py-20 md:py-28 bg-cream/60 relative">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mb-14">
+          <p className="text-sm font-medium text-rose-deep">{t.services.badge}</p>
+          <h2 className="mt-3 font-serif-luxury font-medium text-4xl sm:text-5xl text-ink leading-[1.1]">
             {t.services.title}
           </h2>
-
-          <p className="text-base sm:text-lg text-[#614F4C] leading-relaxed">
-            {t.services.subtitle}
-          </p>
+          <p className="mt-5 text-base sm:text-lg text-muted leading-relaxed">{t.services.subtitle}</p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-          {items.map((item) => (
-            <div
-              key={item.id}
-              className="bg-white rounded-3xl p-7 border border-[#EBDCD4] shadow-sm hover:shadow-xl hover:border-[#D4AF37]/50 transition-all duration-300 flex flex-col justify-between group"
-            >
-              <div>
-                {/* Header: Tag & Duration */}
-                <div className="flex items-center justify-between gap-2 mb-4">
-                  <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#F8EAE4] text-[#8B3A4A] border border-[#F0D0C5]">
-                    {item.tag}
-                  </span>
-                  <div className="flex items-center gap-1.5 text-xs text-[#7A6461] font-medium">
-                    <Clock className="w-3.5 h-3.5 text-[#C59A4E]" />
-                    <span>{item.duration}</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {items.map((item) => {
+            const Icon = SERVICE_ICONS[item.id] || IconLeaf;
+            return (
+              <article
+                key={item.id}
+                className="group bg-white rounded-[1.75rem] p-7 border border-line hover:border-gold transition-colors flex flex-col"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className="w-16 h-16 rounded-full border border-gold/60 bg-ivory text-olive-700 flex items-center justify-center group-hover:bg-rose-soft/60 group-hover:text-rose-deep transition-colors">
+                    <Icon size={34} />
+                  </div>
+                  <div className="text-right text-xs text-muted">
+                    <div className="font-medium text-rose-deep">{item.tag}</div>
+                    <div className="mt-1 inline-flex items-center gap-1.5">
+                      <Clock className="w-3.5 h-3.5 text-gold-deep" strokeWidth={1.5} />
+                      <span>{item.duration}</span>
+                    </div>
                   </div>
                 </div>
 
-                {/* Title */}
-                <h3 className="font-serif-luxury font-bold text-2xl text-[#2D1B1D] mb-3 group-hover:text-[#8B3A4A] transition-colors">
-                  {item.name}
-                </h3>
+                <h3 className="mt-6 font-serif-luxury font-semibold text-2xl text-ink leading-snug">{item.name}</h3>
+                <p className="mt-3 text-sm text-muted leading-relaxed">{item.desc}</p>
 
-                {/* Description */}
-                <p className="text-sm text-[#665451] leading-relaxed mb-6">
-                  {item.desc}
-                </p>
-
-                {/* Benefits List */}
-                <div className="space-y-2 mb-6">
-                  {item.benefits.map((benefit, bIdx) => (
-                    <div key={bIdx} className="flex items-start gap-2 text-xs text-[#4A3B38]">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#5F7A64] shrink-0 mt-0.5" />
+                <ul className="mt-5 space-y-2 mb-7">
+                  {item.benefits.map((benefit) => (
+                    <li key={benefit} className="flex items-start gap-2.5 text-[13px] text-ink-soft">
+                      <Check className="w-4 h-4 text-olive shrink-0 mt-0.5" strokeWidth={1.5} />
                       <span>{benefit}</span>
-                    </div>
+                    </li>
                   ))}
+                </ul>
+
+                <div className="mt-auto pt-5 border-t border-line flex items-center justify-between gap-3">
+                  <button
+                    onClick={() => onSelectServiceForBooking(item.name)}
+                    className="inline-flex items-center gap-2 rounded-full bg-ink text-ivory px-5 py-3 text-[13px] font-semibold hover:bg-olive-800 transition-colors cursor-pointer"
+                  >
+                    <span>{t.services.bookBtn}</span>
+                    <ArrowRight className="w-4 h-4 text-gold-soft" strokeWidth={1.5} />
+                  </button>
+                  <button
+                    onClick={() => setActiveItem(item)}
+                    className="text-[13px] font-semibold text-ink-soft underline decoration-gold underline-offset-4 hover:text-rose-deep cursor-pointer"
+                  >
+                    {t.services.detailsBtn}
+                  </button>
                 </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="pt-5 border-t border-[#F0E0D8] flex items-center gap-3">
-                <button
-                  onClick={() => onSelectServiceForBooking(item.name)}
-                  className="flex-1 bg-gradient-to-r from-[#2D1B1D] to-[#4A2E30] text-[#FAF4F0] py-3 rounded-full text-xs font-bold tracking-wider uppercase shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
-                >
-                  <span>{t.services.bookBtn}</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#D4AF37]" />
-                </button>
-                <button
-                  onClick={() => setActiveModalItem(item)}
-                  className="px-4 py-3 rounded-full border border-[#E0CBC2] text-xs font-semibold text-[#665451] hover:bg-[#FAF3F0] transition-colors cursor-pointer"
-                >
-                  {t.services.detailsBtn}
-                </button>
-              </div>
-
-            </div>
-          ))}
+              </article>
+            );
+          })}
         </div>
-
       </div>
 
-      {/* Detail Modal */}
-      {activeModalItem && (
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-[#E8D1C5] relative animate-in fade-in zoom-in duration-200">
+      {activeItem && (
+        <div
+          className="fixed inset-0 z-[60] bg-ink/60 backdrop-blur-sm flex items-center justify-center p-4"
+          onClick={() => setActiveItem(null)}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label={activeItem.name}
+            onClick={(e) => e.stopPropagation()}
+            className="bg-ivory rounded-[1.75rem] max-w-lg w-full max-h-[90dvh] overflow-y-auto p-6 sm:p-8 shadow-2xl border border-line relative"
+          >
             <button
-              onClick={() => setActiveModalItem(null)}
-              className="absolute top-5 right-5 p-2 rounded-full hover:bg-[#F2E5E0] text-[#2D1B1D] transition-colors cursor-pointer"
+              onClick={() => setActiveItem(null)}
+              aria-label={t.services.modalClose}
+              className="absolute top-4 right-4 p-2 rounded-full hover:bg-cream text-ink transition-colors cursor-pointer"
             >
-              <X className="w-5 h-5" />
+              <X className="w-5 h-5" strokeWidth={1.5} />
             </button>
 
-            <div className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-[#F8EAE4] text-[#8B3A4A] mb-3">
-              {activeModalItem.category} • {activeModalItem.duration}
+            <div className="w-16 h-16 rounded-full border border-gold/60 bg-white text-olive-700 flex items-center justify-center">
+              <ActiveIcon size={34} />
             </div>
 
-            <h3 className="font-serif-luxury font-bold text-2xl sm:text-3xl text-[#2D1B1D] mb-4">
-              {activeModalItem.name}
-            </h3>
-
-            <p className="text-sm sm:text-base text-[#5A4946] leading-relaxed mb-6">
-              {activeModalItem.desc}
+            <p className="mt-5 text-xs font-medium text-rose-deep">
+              {activeItem.category}, {activeItem.duration}
             </p>
+            <h3 className="mt-1 font-serif-luxury font-semibold text-3xl text-ink">{activeItem.name}</h3>
+            <p className="mt-4 text-sm sm:text-base text-ink-soft leading-relaxed">{activeItem.desc}</p>
 
-            <div className="bg-[#FAF3F0] rounded-2xl p-5 mb-6 border border-[#EBDCD4]">
-              <h4 className="font-semibold text-xs text-[#8B3A4A] tracking-wider uppercase mb-3">
-                {t.ui.services.benefitsTitle}
-              </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                {activeModalItem.benefits.map((b, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-xs text-[#3B2B28]">
-                    <CheckCircle2 className="w-4 h-4 text-[#5F7A64] shrink-0" />
+            <div className="mt-6 bg-white rounded-2xl p-5 border border-line">
+              <h4 className="text-sm font-semibold text-ink mb-3">{t.ui.services.benefitsTitle}</h4>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                {activeItem.benefits.map((b) => (
+                  <li key={b} className="flex items-start gap-2 text-[13px] text-ink-soft">
+                    <Check className="w-4 h-4 text-olive shrink-0 mt-0.5" strokeWidth={1.5} />
                     <span>{b}</span>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
-            <div className="flex gap-3">
-              <button
-                onClick={() => {
-                  const serviceName = activeModalItem.name;
-                  setActiveModalItem(null);
-                  onSelectServiceForBooking(serviceName);
-                }}
-                className="flex-1 bg-[#2D1B1D] text-[#FAF4F0] py-3.5 rounded-full text-xs font-bold tracking-wider uppercase shadow-md flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <span>{t.services.bookBtn}</span>
-                <ArrowRight className="w-4 h-4 text-[#D4AF37]" />
-              </button>
-            </div>
+            <button
+              onClick={() => {
+                const serviceName = activeItem.name;
+                setActiveItem(null);
+                onSelectServiceForBooking(serviceName);
+              }}
+              className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-full bg-ink text-ivory py-4 text-sm font-semibold hover:bg-olive-800 transition-colors cursor-pointer"
+            >
+              <span>{t.services.bookBtn}</span>
+              <ArrowRight className="w-4 h-4 text-gold-soft" strokeWidth={1.5} />
+            </button>
           </div>
         </div>
       )}
-
     </section>
   );
 };
